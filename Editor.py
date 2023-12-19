@@ -202,7 +202,6 @@ class Renderer():
     def __init__(self, audio_obj, outfile='./output_vids/out.mp4', needs_video_download=False):
         self.audio = audio_obj
         self.silent_audio_path = './temp/audios/silence.mp3'
-        # self.video = video_obj
         self.outfile = outfile
         self.needs_video_download = needs_video_download
         self.video_segments_path = os.path.join("temp", "segments")
@@ -258,5 +257,5 @@ class Renderer():
         os.remove(self.audio.file_path)
     
         print("\nRendering success! Video downloaded to output_vids directory.\n")
-        # return True
+
     
