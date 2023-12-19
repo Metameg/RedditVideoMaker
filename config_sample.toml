@@ -1,0 +1,16 @@
+[reddit]
+client_id = 'REDDIT_APP_CLIENT_ID'
+secret = 'REDDIT_APP_SECRET'
+user_agent = 'REDDIT_APP_USER_AGENT'
+
+[shotstack]
+x-api-key = 'SHOTSTACK_API_KEY'
+
+[amazon]
+bucket = 'S3_BUCKET_NAME'
+aws_access_key_id = 'AWS_ACCESS_KEY_ID'
+aws_secret_access_key = 'AWS_SECRET_ACCESS_KEY'
+
+[creatomate]
+api_key = 'Bearer CREATOMATE_API_KEY'
+template_id = 'TEMPLATE_ID'
