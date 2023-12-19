@@ -105,6 +105,9 @@ class Video():
 
     @staticmethod
     def compile_segments(audio_queue, video_queue):
+        if not os.path.exists('./temp/segments'):
+            os.makedirs('./temp/segments')
+            
         video_segs = os.listdir('./temp/segments')
         segs_needed = utils.get_segments_needed(audio_queue)
         init_segs = len(video_segs)
@@ -248,6 +251,9 @@ class Renderer():
         audio = ffmpeg.concat(*audio_inputs, v=0, a=1)
         video = ffmpeg.concat(*video_inputs, v=1, a=0)
         
+        # Create output_vids directory if it doesn't exist
+        if not os.path.exists('./output_vids'):
+            os.makedirs('./output_vids')
         # Run the ffmpeg command
         ffmpeg.output(video, audio, self.outfile).run(overwrite_output=True)
         
