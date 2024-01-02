@@ -10,8 +10,6 @@ class GPT():
 		self.new_story = ""
 	
 	def recreate_story(self):
-		print(self.content)
-		print(self.title)
 		response = self.client.chat.completions.create(
 			model="gpt-3.5-turbo",
 			messages=[
@@ -47,9 +45,9 @@ class GPT():
 
 		return response.choices[0].message.content
 
-# if __name__ == '__main__':
-# 	msg = '''I (16f) am in a friend group with around 8 people and one person in particular im really good friends with,let's call her anna (15f).Many girls in our class call our friendship weird since we play around by strangling eachother seeing how long we can last,tripping eachother over etc. stuff like this is normal for us.One Monday in PE we got changed and went to our gym where two classes got split into boys and girls.All the boys got sent out to the other sports hall and all the girls were talking to the female PE teacher about what sport they'd like to do.I was running around anna ,since I was hyper after lunch, and messing with her.I quickly tugged at her trousers to scare her but her trousers actually came down to her knees.She seemed annoyed and she ended up tackling me to the ground and strangling me.And btw only one person saw what happened and they are close friends to anna so they wouldn't judge her or anything.But this is were things went wrong.She seemed annoyed at me at first but then when we started doing sports she seemed fine.But when changing she seemed really distant.I sent her an apology over text but she didnt read it or answer.The next day she refused to talk to me or even look at me.She told our form tutor what happened and so did I and he was obviously on her side and said she needs some time alone to think about what happened.So I though alright I'll give her some time and then I'll ask if we could have a meeting with me,anna and our teacher to sort things out but a week has passed and she still refuses to talk and look at me plus she even refused the meeting.I hate her for this because if we don't talk nothing will get sorted out.Annas friend told me I should respect Anna's decision to never be friends with me again.All the people in our friendship group think Anna's overreacting a bit and are hoping she'll be friends with me again but the way things are going I don't think she'll even acknowledge my existence in along time.'''
-# 	gpt = GPT( msg, "AITA for feeling guilty about sending my ex bff to prison?" )
-# 	gpt.recreate_story()
-# 	gpt.recreate_title()
+if __name__ == '__main__':
+	msg = '''I (16f) am in a friend group with around 8 people and one person in particular im really good friends with,let's call her anna (15f).Many girls in our class call our friendship weird since we play around by strangling eachother seeing how long we can last,tripping eachother over etc. stuff like this is normal for us.One Monday in PE we got changed and went to our gym where two classes got split into boys and girls.All the boys got sent out to the other sports hall and all the girls were talking to the female PE teacher about what sport they'd like to do.I was running around anna ,since I was hyper after lunch, and messing with her.I quickly tugged at her trousers to scare her but her trousers actually came down to her knees.She seemed annoyed and she ended up tackling me to the ground and strangling me.And btw only one person saw what happened and they are close friends to anna so they wouldn't judge her or anything.But this is were things went wrong.She seemed annoyed at me at first but then when we started doing sports she seemed fine.But when changing she seemed really distant.I sent her an apology over text but she didnt read it or answer.The next day she refused to talk to me or even look at me.She told our form tutor what happened and so did I and he was obviously on her side and said she needs some time alone to think about what happened.So I though alright I'll give her some time and then I'll ask if we could have a meeting with me,anna and our teacher to sort things out but a week has passed and she still refuses to talk and look at me plus she even refused the meeting.I hate her for this because if we don't talk nothing will get sorted out.Annas friend told me I should respect Anna's decision to never be friends with me again.All the people in our friendship group think Anna's overreacting a bit and are hoping she'll be friends with me again but the way things are going I don't think she'll even acknowledge my existence in along time.'''
+	gpt = GPT( msg, "AITA for feeling guilty about sending my ex bff to prison?" )
+	gpt.recreate_story()
+	gpt.recreate_title()
 
