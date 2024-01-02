@@ -14,3 +14,6 @@ aws_secret_access_key = 'AWS_SECRET_ACCESS_KEY'
 [creatomate]
 api_key = 'Bearer CREATOMATE_API_KEY'
 template_id = 'TEMPLATE_ID'
+
+[gpt]
+api_key = 'GPT_API_KEY'
