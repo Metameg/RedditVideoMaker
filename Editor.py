@@ -223,7 +223,7 @@ class Renderer():
         # else:
         #     self.video.cut(self.video.path)
 
-        AUDIO_DELAY = 3
+        AUDIO_DELAY = 0
         # Get list of filenames for clips in video segments path
         clips = os.listdir(self.video_segments_path)
 
@@ -242,8 +242,8 @@ class Renderer():
 
         # Add audio overlay
         audio_inputs=[]
-        silent_audio = ffmpeg.input(self.silent_audio_path, t=AUDIO_DELAY)
-        audio_inputs.append(silent_audio)
+        # silent_audio = ffmpeg.input(self.silent_audio_path, t=AUDIO_DELAY)
+        # audio_inputs.append(silent_audio)
         text_audio = ffmpeg.input(self.audio.file_path)
         audio_inputs.append(text_audio)
 

@@ -5,8 +5,13 @@ import utils
 from Creatomate import Creatomate
 from Reddit import RedditScraper
 from Editor import Audio, Video, Renderer
+from gpt import GPT
 
-# r/relationshipadvice : r/datingadvice : r/aitah : r/askmen
+# add shotstack provider filter
+# add all-time to filter arg
+# integrate char limits into gpt
+# change the title of custom stories to be the first sentence of the story (GPT generated)
+
 
 # Get arguments from command line
 text = args.get_text()
@@ -24,7 +29,7 @@ settings = utils.read_config()
 # Obtain posts from Reddit Scraper
 scraper = RedditScraper()
 
-# Scrape posts if input text file is not provided
+# Scrape posts if input text file is not provided, otherwise set posts to a dummy post
 if text is None:
     posts = scraper.scrape_posts(num_posts, subreddit, filter, min_charlimit, max_charlimit)
     if len(posts) == 0:
@@ -36,17 +41,24 @@ else:
 audio_url = "https://api.shotstack.io/create/stage/assets/"
 audio_headers = {'content-type': 'application/json',
                  'x-api-key': settings['shotstack']['x-api-key']
-                 }
+                }
 
 # Build mp3s from text-to-speech API 
 audio_queue = []
 post_titles = []
+
 for i, post in enumerate(posts, 1):
     if title is not None:
         post.title = title
     if text is not None:
         post.selftext = text
-
+    
+    # Re-write story using chat-gpt
+    # print(post.title)
+    gpt = GPT(post.selftext, post.title)
+    post.selftext = gpt.recreate_story()
+    post.title = gpt.recreate_title()
+    post.selftext = post.title + post.selftext
     post_titles.append(post.title)
     print(f'rendering audio ({i}/{len(posts)})...')
     seg_queue = utils.build_audio_segment_queue(post, voice, i)
