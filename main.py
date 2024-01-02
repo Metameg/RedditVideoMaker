@@ -53,9 +53,9 @@ for i, post in enumerate(posts, 1):
         post.title = title
     if text is not None:
         post.selftext = text
-    print(post.selftext)
+    
+    print (post.selftext)
     # Re-write story using chat-gpt
-    print(post.title)
     gpt = GPT(post.selftext, post.title)
     post.selftext = gpt.recreate_story()
     post.title = gpt.recreate_title()
