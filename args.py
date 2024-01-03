@@ -52,12 +52,19 @@ def get_text():
             raise Exception("Text file not found. Exiting.")
             
 
-def get_title(): 
-    if not args.title and args.textfile:
-        print("Warning: Title will be blank. Use -t or --title to use a title in the banner of the video.")
-    if args.title:
-        print("Using custom title.")
-        return args.title
+# def get_title(): 
+#     if args.title:
+#         try:
+#             print("Using custom title.")
+#             with open(args.textfile, 'r') as text_file:
+#                 return text_file.read()
+#         except Exception:
+#             raise Exception("Text file not found. Exiting.")
+#     if not args.title and args.textfile:
+#         print("Warning: Title will be blank. Use -t or --title to use a title in the banner of the video.")
+#     if args.title:
+#         print("Using custom title.")
+#         return args.title
 
 def get_voice():
     compatible_voices = ['Matthew', 'Ivy', 'Joanna', 'Kendra', 'Kimberly', 'Salli', 'Joey', 'Justin', 'Kevin', 'Ruth', 'Stephen']

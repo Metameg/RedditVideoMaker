@@ -15,7 +15,7 @@ from gpt import GPT
 
 # Get arguments from command line
 text = args.get_text()
-title = args.get_title()
+# title = args.get_title()
 subreddit = args.get_subreditt()
 num_posts = args.get_num_posts()
 voice = args.get_voice()
@@ -37,7 +37,7 @@ if text is None:
         print("No posts found on this subreddit. Exiting.")
         sys.exit()
 else:
-    posts = [scraper.get_dummy_submission(title, text)]
+    posts = [scraper.get_dummy_submission(None, text)]
 
 audio_url = "https://api.shotstack.io/create/stage/assets/"
 audio_headers = {'content-type': 'application/json',
@@ -49,17 +49,18 @@ audio_queue = []
 post_titles = []
 
 for i, post in enumerate(posts, 1):
-    if title is not None:
-        post.title = title
+    # if title is not None:
+    #     post.title = title
     if text is not None:
         post.selftext = text
     
-    print (post.selftext)
     # Re-write story using chat-gpt
-    gpt = GPT(post.selftext, post.title)
+    # gpt = GPT(post.selftext, post.title)
+    gpt = GPT(post.selftext)
     post.selftext = gpt.recreate_story()
     post.title = gpt.recreate_title()
-    post.selftext = post.title + post.selftext
+    post.selftext = post.title + " " + post.selftext
+    print(post.selftext)
     post_titles.append(post.title)
     print(f'rendering audio ({i}/{len(posts)})...')
     seg_queue = utils.build_audio_segment_queue(post, voice, i)
