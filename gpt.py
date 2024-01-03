@@ -14,7 +14,7 @@ class GPT():
 		response = self.client.chat.completions.create(
 			model="gpt-3.5-turbo",
 			messages=[
-				{"role": "system", "content": "You are a person that exaggerates and copies short stories as if they happened to you. Your task is to re-word a story given to you and make it your own. You will be telling this story in a common conversation."},
+				{"role": "system", "content": "You are a person that exaggerates and copies short stories as if they happened to you. Your task is to re-word and a story given to you and make it your own in less than 400 words. You will shorten the story into less than 450 words in your response. You will be telling this story in a common conversation."},
 				# {"role": "system", "content": "Your job is to re-word stories given to you from reddit and make them captivating."},
 				{"role": "system", "content": "The stories you will receive will have a particular meaning and intent by the story teller. Maintaining the intent of the original story is the most important thing here and should remain a priority."},
 				{"role": "system", "content": "Any curse words or inappropriate language should be censored in the new story you are creating."},
@@ -23,7 +23,7 @@ class GPT():
 				# {"role": "system", "content": "Ensure that the reworded content is easy to understand for a broad audience while retaining the subject's technical or specific aspects."},
 				# {"role": "system", "content": "Inject creativity and engagement into the reworded content to make it more appealing to readers. This can include storytelling elements, questions, or prompts for comments."},
 				{"role": "user", "content": f'This is your story: {self.content}.'},
-				{"role": "system", "content": "When you make the story your own, you only add a few embellishments to the story. Your response should be the same number of words as the story you ae given."}
+				{"role": "system", "content": "When you make the story your own, you only add a few embellishments to the story. Make sure to keep your response to less than 400 words,"}
 				# {"role": "user", "content": "The story is way too long. Make sure you stick to the 1200 to 1600 character limit."}
 			]
 		)
