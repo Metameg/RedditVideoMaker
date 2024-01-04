@@ -50,12 +50,5 @@ if __name__ == '__main__':
 	gpt = GPT( msg )
 	story = gpt.recreate_story()
 	title = gpt.recreate_title()
-<<<<<<< HEAD
-=======
-
-	print(title  + story)
-
-
->>>>>>> 7400e5382c55a00d047ab0a1f4259795c44da7ed
 
 	print(title  + story)
