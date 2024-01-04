@@ -8,6 +8,7 @@ from Editor import Audio, Video, Renderer
 from gpt import GPT
 
 # add shotstack provider filter
+# speed up voices
 # add all-time to filter arg
 # integrate char limits into gpt
 # change the title of custom stories to be the first sentence of the story (GPT generated)
