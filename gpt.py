@@ -14,11 +14,11 @@ class GPT():
 		response = self.client.chat.completions.create(
 			model="gpt-3.5-turbo",
 			messages=[
-				{"role": "system", "content": "You are a person that exaggerates and copies short stories as if they happened to you. Your task is to re-word and a story given to you and make it your own in less than 400 words. You will shorten the story into less than 450 words in your response. You will be telling this story in a common conversation."},
+				{"role": "system", "content": "You are a person that exaggerates and copies short stories as if they happened to you. Your task is to re-word and a story given to you and make it your own in less than 300 words. You will shorten the story into less than 450 words in your response. You will be telling this story in a common conversation."},
 				{"role": "system", "content": "The stories you will receive will have a particular meaning and intent by the story teller. Maintaining the intent of the original story is the most important thing here and should remain a priority."},
 				{"role": "system", "content": "Any curse words or inappropriate language should be censored in the new story you are creating."},
 				{"role": "user", "content": f'This is your story: {self.content}.'},
-				{"role": "system", "content": "When you make the story your own, you only add a few embellishments to the story. Make sure to keep your response to less than 400 words,"}
+				{"role": "system", "content": "When you make the story your own, you only add a few embellishments to the story. Make sure to keep your response to less than 300 words,"}
 				
 			]
 		)
